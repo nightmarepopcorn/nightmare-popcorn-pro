@@ -1,0 +1,1 @@
+export default function Page(){return (<div className='wrap py-6'><h1 className='text-2xl font-bold'>Terms</h1><p className='lead mt-2'>Limited quantities. Use at your own risk. Horror may ensue.</p></div>);}

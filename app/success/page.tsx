@@ -1,0 +1,1 @@
+export default function Page(){return (<div className='wrap py-10'><h1 className='text-3xl font-bold'>You’re all set.</h1><p className='lead mt-2'>Check your email for the receipt. Shipping info will follow.</p></div>);}

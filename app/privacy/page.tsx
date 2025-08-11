@@ -1,0 +1,1 @@
+export default function Page(){return (<div className='wrap py-6'><h1 className='text-2xl font-bold'>Privacy</h1><p className='lead mt-2'>We collect only what we need to run our newsletter and store. Never sold.</p></div>);}
