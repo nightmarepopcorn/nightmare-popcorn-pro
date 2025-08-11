@@ -1,30 +1,31 @@
+import { products } from '@/data/products';
+import { notFound } from 'next/navigation';
+import AddToCart from '@/components/AddToCart';
 
-import { products } from "@/data/products";
-import { notFound } from "next/navigation";
-import { useCart } from "@/components/CartContext";
-
-export default function ProductPage({ params }: { params: { id: string } }){
-  const product = products.find(p => p.id === params.id);
+export default function ProductPage({ params }: { params: { id: string } }) {
+  const product = products.find((p) => p.id === params.id);
   if (!product) return notFound();
+
   return (
     <div className="wrap py-6">
       <div className="grid md:grid-cols-2 gap-6">
-        <img src={product.image} alt="" className="rounded-2xl border border-neutral-800"/>
+        <img
+          src={product.image}
+          alt=""
+          className="rounded-2xl border border-neutral-800"
+        />
         <div>
           <h1 className="text-3xl font-bold">{product.name}</h1>
-          <p className="lead mt-2">${(product.price/100).toFixed(2)}</p>
+          <p className="lead mt-2">${(product.price / 100).toFixed(2)}</p>
           <p className="mt-3">{product.description}</p>
-          {/* Client component wrapper to access cart */}
-          <AddToCart id={product.id} name={product.name} price={product.price} image={product.image} />
+          <AddToCart
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            image={product.image}
+          />
         </div>
       </div>
     </div>
   );
-}
-
-'use client';
-import { ButtonHTMLAttributes } from "react";
-function AddToCart(props: { id:string; name:string; price:number; image:string }){
-  const { add } = useCart();
-  return <button className="btn mt-4" onClick={() => add(props)}>Add to Cart</button>;
 }
